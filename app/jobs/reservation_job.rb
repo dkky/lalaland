@@ -1,5 +1,4 @@
 class ReservationJob < ActiveJob::Base
-  include Sidekiq::Worker
   queue_as :default
 
   def perform(customer, host, reservation)

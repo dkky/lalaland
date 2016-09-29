@@ -60,6 +60,17 @@ class ListingsController < ApplicationController
 	end
 
 
+  def search
+  	byebug
+        @listings = Listing.search(params[:term], fields:[{name: :word_start},{location: :word_start} ], mispellings: {below: 5})
+        if @listings.blank?
+          redirect_to listings_path, flash:{danger: "no successful search result"}
+        else
+          render :index
+        end
+  end
+
+
 	private
 
 	def strong_params

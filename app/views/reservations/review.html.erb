@@ -5,3 +5,18 @@
 <p> Check Out: </p>
 
 <p> Room Details: </p>
+
+<h3>Your Reservation</h3>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <p>Listing name: <%= link_to @reservation.listing.name, listing_path(@reservation.listing) %></p>
+    <p>Location: <%= @reservation.listing.location %> </p>
+    <p>Check-in Date: <%= @reservation.start_date %></p>
+
+    <p>Checkout Date: <%= @reservation.end_date %></p>
+
+
+
+  </li>
+</ul>

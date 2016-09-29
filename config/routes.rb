@@ -2,6 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  get 'payments/new'
+
   mount Sidekiq::Web, at: '/sidekiq'
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -40,6 +42,11 @@ Rails.application.routes.draw do
   get "/reservatons/review" => "reservations#review", as:"reservation_review"
 
   get '/preload' => 'reservations#preload'
+
+  resources :payments, only: [:new, :create]
+
+  get '/search', to: 'listings#search'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

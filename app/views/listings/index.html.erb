@@ -15,7 +15,7 @@
 <div class="col-md-3 col-md-offset-5">
     <% (1..@total_pages).each do |page| %>
         <%= link_to page, controller: "listings", action: "index", page: page %>&nbsp;
-    <% end %>
+    <% end if @total_pages %>
 </div>
 
 
