@@ -6,6 +6,10 @@ class Listing < ActiveRecord::Base
 
 	mount_uploaders :images, ImageUploader
 
+	searchkick word_start: [:name, :location]
+
+
+
 	PROP_TYPE = %w(Apartment House Condo).map {|x| [x] * 2}
 
 	enum prop_type: [
@@ -32,4 +36,5 @@ class Listing < ActiveRecord::Base
 	end
 end
 
+Listing.reindex
 

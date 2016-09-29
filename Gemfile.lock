@@ -48,6 +48,8 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    braintree (2.33.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.5)
     carrierwave (1.0.0.beta)
@@ -75,6 +77,14 @@ GEM
       sort_alphabetical (~> 1.0)
     currencies (0.4.2)
     debug_inspector (0.0.2)
+    elasticsearch (2.0.0)
+      elasticsearch-api (= 2.0.0)
+      elasticsearch-transport (= 2.0.0)
+    elasticsearch-api (2.0.0)
+      multi_json
+    elasticsearch-transport (2.0.0)
+      faraday
+      multi_json
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -214,6 +224,11 @@ GEM
     formatador (0.2.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gon (5.1.2)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     hashie (3.4.6)
     i18n (0.7.0)
     i18n_data (0.7.0)
@@ -264,6 +279,7 @@ GEM
       omniauth (~> 1.2)
     pg (0.19.0)
     pkg-config (1.1.7)
+    puma (3.6.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -288,6 +304,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -301,6 +322,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redis (3.3.1)
+    request_store (1.3.1)
     rmagick (2.16.0)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -312,6 +334,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchkick (1.3.5)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     sidekiq (4.2.2)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -355,6 +381,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.2.0)
+  braintree (~> 2.33.1)
   byebug
   carrierwave (>= 1.0.0.beta, < 2.0)
   clearance
@@ -362,6 +389,7 @@ DEPENDENCIES
   country_select
   figaro
   fog
+  gon (~> 5.1.2)
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
@@ -369,10 +397,13 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg (~> 0.15)
+  puma
   rails (= 4.2.6)
+  rails_12factor
   rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  searchkick
   sidekiq (~> 4.2, >= 4.2.1)
   spring
   turbolinks
